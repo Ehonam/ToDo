@@ -1,0 +1,56 @@
+h1 {
+    font-size: 40px;
+}
+
+#count {
+    padding: 1%;
+}
+
+#btn {
+    width: 100vh;
+    background-color: beige;
+    padding: 1%;
+    
+}
+
+#btn:hover {
+    transform: scale(1.01);
+    color: rgb(84, 129, 129);
+}
+
+#todoCards {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    width: 100vh;
+    padding-top: 1%;
+    padding-right: 1%;
+    gap: 3.9%;
+}
+
+.todoCard {
+    position: relative;
+}
+
+.task {
+    width: 200px;
+    height: 300px;
+    border:1px solid #ccc;
+    border-color: black;
+}
+
+.delBtn {
+    position: absolute;
+    cursor: pointer;
+    bottom: 10px;
+    right: 10px;    
+    width: 100%;
+    opacity: 0.7;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.delBtn:hover {
+    opacity: 1;
+}

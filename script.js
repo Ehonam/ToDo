@@ -12,36 +12,38 @@ function addTask() {
     const newTextArea = newTask.querySelector('.task')
     newTextArea.value = "New Task" // set new task text to "New Task"
 
-//faire fonctionner le bouton de suppression
-    // ajout d'écouteur d'événement
-const delBtn = document.querySelector('.delBtn');
-delBtn.addEventListener('click', function() { //delete default task on click
-deleteTask(taskCard); //target the right task
+    //faire fonctionner le bouton de suppression
+        // ajout d'écouteur d'événement
+    const delBtn = document.querySelector('.delBtn');
+    delBtn.addEventListener('click', function() { //delete default task on click
+    deleteTask(taskCard); //target the right task
 });
     //on crée la fonction de suppression
-function deleteTask(task) {
-    task.remove(); //remove the task
-}
+    function deleteTask(task) {
+        task.remove(); //remove the task
+        updateCount();
+    }
 
-//écouteur d'événement sur l'élément clôné
-    newDelBtn.addEventListener('click', function() { // add delete event listener to new task
-    deleteTask(newTask); //target the new task
-});
+    //écouteur d'événement sur l'élément clôné
+        newDelBtn.addEventListener('click', function() { // add delete event listener to new task
+        deleteTask(newTask); //target the new task
+    });
 
-taskContainer.appendChild(newTask) //append new task to the tasks container
-updateCount();
+    taskContainer.appendChild(newTask) //append new task to the tasks container
+    updateCount();
 
 
-//ajout du compteur de tasks
-//écouteur d'événement sur l'élémént tasks
-const nbCards = document.querySelectorAll(".todoCards");
-nbCards.addEventListener('click', function() {
+    //ajout du compteur de tasks
+    //écouteur d'événement sur l'élémént tasks
+    const nbCards = document.querySelectorAll(".todoCards");
+    nbCards.addEventListener('click', function() {
 
-}) 
-//création fonction compteur
-function compteur(nbCards) {
+    }) 
 
-}
+    //création fonction compteur (il s'agit d'utiliser la méthode de comptage des éléments enfants de la div "todoCards")
+    function updateCount() {
+        document.querySelector("#nb").innerHTML = taskContainer.children.length // nombre d'enfants du taskcontainer
+    }
 
 }
 
@@ -53,3 +55,50 @@ const data = collect(task);
 const total = data.count(); 
   
 console.log('Total number of elements are:', {total});
+
+
+// méthode 2 compteur
+/* 
+window.onload =
+    function() {
+  let btn = document.getElementById('btn');
+  btn.onclick = incrementClick;
+
+  let delBtn = document.getElementById('delBtn');
+  delBtn.onclick = decrementClick;
+}
+
+var counterVal = 1;
+
+incrementClick =
+    function() {
+  updateDisplay(++counterVal);
+}
+
+decrementClick =
+    function() {
+  updateDisplay(--counterVal);
+}
+
+function updateDisplay(val) {
+  document.getElementById('nb').innerHTML = val;
+}
+*/
+
+
+
+// méthode 3 compteur
+/*
+var btn = document.getElementById('btn');
+var delBtn = document.getElementById('delBtn');
+var nb = document.getElementById('nb');
+var compteur = parseInt(nb.innerText);
+btn.addEventListener('click', function(){
+    compteur = compteur+1;
+    nb.innerHTML = compteur;
+});
+delBtn.addEventListener('click', function(){
+    compteur = compteur-1;
+    nb.innerHTML = compteur;
+});
+*/
